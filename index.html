@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Moonlight Randomized Music Player</title>
+    <!-- Web App Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Browser Tab Favicon Link -->
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
     <style>
         :root {
             --bg-moon: #08070b;
@@ -325,7 +329,6 @@
 
         document.getElementById('folderPicker').addEventListener('change', handleFolderSelection);
 
-        // Auto-load saved tracks from IndexedDB storage on startup with loading overlay
         window.addEventListener('DOMContentLoaded', async () => {
             try {
                 showLoading("Restoring saved playlist...");
@@ -353,8 +356,6 @@
             const fileList = Array.from(event.target.files).filter(file => file.type.startsWith('audio/') || file.name.endsWith('.mp3'));
             if (fileList.length > 0) {
                 showLoading("Processing and saving files...");
-                
-                // Yield execution frame briefly so UI renders loading screen smoothly
                 await new Promise(resolve => setTimeout(resolve, 50));
 
                 const firstPath = fileList[0].webkitRelativePath;
@@ -487,7 +488,6 @@
             audioElement.currentTime = (clickX / width) * audioElement.duration;
         }
 
-        /* IndexedDB True Permanent Local Storage Setup */
         function openStorageDB() {
             return new Promise((resolve, reject) => {
                 const request = indexedDB.open('MoonlightTrueStorage', 1);
