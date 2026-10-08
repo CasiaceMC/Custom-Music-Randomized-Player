@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Dark Moon Black Background with curved corners -->
+  <rect width="512" height="512" rx="96" ry="96" fill="#08070b" />
+  
+  <!-- Play Triangle with crisp lines and smooth curved corners -->
+  <path d="M 180 115 C 172 110, 164 116, 164 126 L 164 386 C 164 396, 172 402, 180 397 L 396 267 C 403 263, 403 249, 396 245 Z" fill="#b892ff" />
+</svg>
