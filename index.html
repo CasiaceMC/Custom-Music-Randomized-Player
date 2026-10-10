@@ -10,7 +10,7 @@
     <link rel="icon" type="image/svg+xml" href="icon.svg">
     <style>
         :root {
-            --bg-moon: #08070b;
+            --bg-moon: #121017;
             --surface-dark: #121017;
             --surface-card: #181521;
             --border-color: #272235;
@@ -210,7 +210,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(8, 7, 11, 0.85);
+            background-color: rgba(18, 16, 23, 0.85);
             backdrop-filter: blur(4px);
             display: flex;
             flex-direction: column;
@@ -516,6 +516,15 @@
                 const req = tx.objectStore('playlistStore').get('cachedPlaylist');
                 req.onsuccess = () => resolve(req.result);
                 req.onerror = () => reject(req.error);
+            });
+        }
+
+        // Service Worker Registration for Offline Capabilities
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('Service Worker registered:', reg.scope))
+                    .catch((err) => console.log('Service Worker registration failed:', err));
             });
         }
     </script>
