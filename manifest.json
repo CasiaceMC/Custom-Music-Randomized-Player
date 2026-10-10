@@ -3,8 +3,8 @@
   "short_name": "Moonlight Player",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#08070b",
-  "theme_color": "#08070b",
+  "background_color": "#121017",
+  "theme_color": "#121017",
   "icons": [
     {
       "src": "icon.svg",
